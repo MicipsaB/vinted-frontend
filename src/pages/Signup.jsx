@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Cookies from "js-cookie";
 import axios from "axios";
 
 const Signup = () => {
@@ -13,6 +14,20 @@ const Signup = () => {
       <form
         onSubmit={async (event) => {
           event.preventDefault();
+
+          const dataToPost = {
+            email: email,
+            username: username,
+            password: password,
+            newsletter: isCkecked,
+          };
+
+          const response = await axios.post(
+            "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+            dataToPost
+          );
+
+          Cookies.set("token", response.data.token, { expires: 15 });
         }}
       >
         {/* Username Input  */}
@@ -52,7 +67,7 @@ const Signup = () => {
         <input
           type="checkbox"
           onChange={() => {
-            setIsChecked(!checked);
+            setIsChecked(!isCkecked);
           }}
           checked={isCkecked}
         />
@@ -61,6 +76,8 @@ const Signup = () => {
           Conditions et Politique de Confidentialité de Vinted. Je confirme
           avoir au moins 18 ans.
         </p>
+
+        {/* Submit Button  */}
         <input type="submit" value={"S'inscrire"} />
       </form>
     </div>
