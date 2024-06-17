@@ -1,16 +1,20 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ handleToken }) => {
   //On crée les states pour nos inputs
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [isCkecked, setIsChecked] = useState(false);
 
+  const navigate = useNavigate();
+
   return (
-    <div>
+    <div className="signup-container">
+      <h2>S'inscrire</h2>
       <form
         onSubmit={async (event) => {
           event.preventDefault();
@@ -27,7 +31,9 @@ const Signup = () => {
             dataToPost
           );
 
-          Cookies.set("token", response.data.token, { expires: 15 });
+          handleToken(response.data.token);
+
+          navigate("/");
         }}
       >
         {/* Username Input  */}

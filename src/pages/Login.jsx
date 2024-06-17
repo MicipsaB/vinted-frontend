@@ -1,10 +1,15 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ handleToken }) => {
   //On crée les states pour nos inputs
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+
+  const navigate = useNavigate();
+
   return (
     <div>
       <form
@@ -20,8 +25,9 @@ const Login = () => {
             "https://lereacteur-vinted-api.herokuapp.com/user/login",
             dataToPost
           );
+          handleToken(response.data.token);
 
-          console.log(response.data);
+          navigate("/");
         }}
       >
         {/* Email Input  */}
