@@ -16,6 +16,7 @@ const Signup = ({ handleToken }) => {
     <div className="signup-container">
       <h2>S'inscrire</h2>
       <form
+        className="signup-form"
         onSubmit={async (event) => {
           event.preventDefault();
 

@@ -42,10 +42,13 @@ const Home = () => {
             <Link key={elem._id} to={"/offer/" + elem._id}>
               <div className="offer">
                 <div className="username-avatar">
-                  <img
-                    src={elem.owner.account.avatar.secure_url}
-                    alt={elem.owner.account.username}
-                  />
+                  {elem.owner.account.avatar && (
+                    <img
+                      src={elem.owner.account.avatar.secure_url}
+                      alt={elem.owner.account.username}
+                    />
+                  )}
+
                   <span>{elem.owner.account.username}</span>
                 </div>
 

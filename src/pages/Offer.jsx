@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 
@@ -20,6 +21,7 @@ const Offer = () => {
 
       //Je stocke la réponse du serveur dans le state data
       setData(response.data);
+      console.log(response.data);
 
       //Je fais passer isLoading à false
       setIsLoading(false);
@@ -38,7 +40,7 @@ const Offer = () => {
           <img src={data.product_image.secure_url} alt="product_image" />
         </div>
         <div className="product-details">
-          <p>{data.price}</p>
+          <p>{data.product_price} €</p>
           <ul>
             {data.product_details.map((elem) => {
               const keys = Object.keys(elem);
@@ -88,9 +90,19 @@ const Offer = () => {
           <p>{data.product_description}</p>
 
           <div className="owner">
-            <img src={data.owner.account.avatar.secure_url} alt="owner" />
+            {data.owner.account.avatar && (
+              <img src={data.owner.account.avatar.secure_url} alt="owner" />
+            )}
+
             <span>{data.owner.account.username}</span>
           </div>
+
+          <Link
+            to="/payment"
+            state={{ title: data.product_name, price: data.product_price }}
+          >
+            <button>Acheter</button>
+          </Link>
         </div>
       </div>
     </div>

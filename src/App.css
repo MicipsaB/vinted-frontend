@@ -1,3 +1,20 @@
+/* ---------HEADER Starts---------  */
+.header-container {
+  max-width: 1224px;
+  margin: 0 auto;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 20px;
+}
+/* ----------HEADER ENDS--------- */
+
 /* -------------Home Page Starts------------ */
 .hero-img {
   height: 454px;
@@ -53,9 +70,8 @@
 /* --------------Offer Page Starts-------------  */
 .offer-container {
   background-color: #ebedee;
-  padding-left: 222px;
-  padding-top: 30px;
-  padding-right: 224px;
+
+  padding: 40px 224px;
 }
 
 .inner-offer-container {
@@ -68,9 +84,17 @@
 
 .product-details {
   width: 400px;
-  height: 606px;
+
   background-color: #fff;
   padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.product-details li {
+  display: flex;
+  justify-content: space-between;
 }
 
 .product-image {
@@ -98,5 +122,90 @@
 /* --------------Offer Page Ends-------------  */
 
 /* -----------Signup Page Starts--------- */
+.signup-container {
+  width: 274px;
+  margin: 0 auto;
+  padding: 80px;
+}
 
+.signup-container h2 {
+  margin-bottom: 50px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
 /* -----------Signup Page Ends--------- */
+
+/* -----------Login Page Starts--------- */
+.login-container {
+  width: 274px;
+  margin: 0 auto;
+  padding: 80px;
+}
+
+.login-container h2 {
+  margin-bottom: 50px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+/* -----------Login Page Ends--------- */
+
+/* -----------Publish Page Starts--------- */
+.publish-container {
+  width: 274px;
+  margin: 0 auto;
+  padding: 80px;
+}
+
+.publish-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+/* -----------Publish Page Ends--------- */
+
+/* -----------Payment Page Starts--------- */
+.payment-container {
+  background-color: #ebedee;
+  padding: 40px 660px;
+}
+
+.payment-form {
+  width: 600px;
+  height: 780px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: #fff;
+  padding: 40px;
+}
+
+.payment-form ul {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.payment-form li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-form p {
+  margin-bottom: 40px;
+}
+/* -----------Payment Page Ends--------- */

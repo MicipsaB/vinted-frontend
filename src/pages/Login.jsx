@@ -11,8 +11,10 @@ const Login = ({ handleToken }) => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="login-container">
+      <h2>Connexion</h2>
       <form
+        className="login-form"
         onSubmit={async () => {
           event.preventDefault();
 
